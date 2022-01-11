@@ -4,15 +4,15 @@
 
 using namespace std;
 
-class A
+class Complex
 {
 	float real, img;
 	public:
-		A()
+		Complex()
 		{
 		}
 		
-		A(float x, float y)
+		Complex(float x, float y)
 		{
 			real = x;
 			img = y;
@@ -23,12 +23,12 @@ class A
 			cout<<real<<" + j"<<img<<endl;
 		}
 		
-		A operator +(A obj);
+		Complex operator + (Complex obj);
 };
 
-A A:: operator+(A obj)
+Complex Complex:: operator + (Complex obj)
 {
-	A obj1;
+	Complex obj1;
 	obj1.real = real + obj.real;
 	obj1.img = img + obj.img;
 	return obj1;
@@ -36,17 +36,17 @@ A A:: operator+(A obj)
 
 int main()
 {
-	A a(1.1,2.2);
-	A b(2.2,1.1);
+	Complex number_1(1.1,2.2);
+	Complex number_2(2.2,1.1);
 	
-	A c = a + b;
+	Complex number_3 = number_1 + number_2;
 	
 	cout<<endl<<"Complex Number 1 = ";
-	a.show();
+	number_1.show();
 	cout<<endl<<"Complex Number 2 = ";
-	b.show();
+	number_2.show();
 	cout<<endl<<"Sum of Complex Number 1 and Complex Number 2 = ";
-	c.show();
+	number_3.show();
 	
 	getch();
 }
