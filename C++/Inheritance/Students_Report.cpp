@@ -4,13 +4,15 @@
 
 using namespace std;
 
-class A
+
+// Creating a Base class
+class Stud_details
 {
 	   int sno;
 	   char sna[10];
 	   
    public:
-   		void get()
+   		void Details()    // to read Student name and number
 		{
 		  cout<<"Enter Student Number:";
 		  cin>>sno;
@@ -19,58 +21,59 @@ class A
 		  cout<<endl;
 		}
 		
-		void put()
+		void Output()      // to display student name and number
 		{
 		  cout<<"Student Number:"<<sno<<endl;
 		  cout<<"Student Name:"<<sna<<endl;
 		}
 };
 
-class B : public A
+
+class Stud_marks : public Stud_details  // Derived class (single inheritance)
 {
    protected:
 	   int S1, S2, S3;
 
    public:
-	   void read()
+	   void marks()     // to read student marks 
 	   {
 	      cout<<endl<<"Enter S1, S2, S3 Marks: ";
 	      cin>>S1>>S2>>S3;
 	      cout<<endl;
 	   }
 	
-	   void write()
+	   void write()    // to display student marks
 	   {
 	      cout<<"Student Marks:";
 	      cout<<S1<<", "<<S2<<", "<<S3<<endl;
 	   }
 };
 
-class C
+class Srt_weightage  //base class
 {
    protected:
    		int swpt;
    		
    public:
-	   void input()
+	   void sports()  // to read sports weightage
 	   {
 	      cout<<endl<<"Enter Sports Weightage:";
 	      cin>>swpt;
 	      cout<<endl;
 	   }
 	
-	   void output()
+	   void weightage()     // to display sports weightage
 	   {
 	      cout<<"Sports Weightage:"<<swpt<<endl;
 	   }
 };
 
-class D : public B, public C
+class Total : public Stud_marks, public Srt_weightage   // Dreived class (multiple inheritance)
 {
    		int total;
 
    public:
-	   void show()
+	   void Display()    // to calculate and display the summation of marks 
 	   {
 	      total = S1 + S2 + S3 + swpt;
 	      cout<<endl<<"Total Marks:"<<total;
@@ -79,13 +82,13 @@ class D : public B, public C
 
 int main()
 {
-   D ob;
-   ob.get();
-   ob.put();
-   ob.read();
+   Total ob;
+   ob.Details();
+   ob.Output();
+   ob.marks();
    ob.write();
-   ob.input();
-   ob.output();
-   ob.show();
+   ob.sports();
+   ob.weightage();
+   ob.Display();
    getch();
 }
